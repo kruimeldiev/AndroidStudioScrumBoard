@@ -31,5 +31,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        loginKnop.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                InlogVersturen login = new InlogVersturen(v.getContext());
+                login.execute();
+            }
+        });
     }
 }

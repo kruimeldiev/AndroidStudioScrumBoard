@@ -1,14 +1,16 @@
 package com.casperdaris.digitalscrum;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class RegistratieVersturen extends AsyncTask <String, String, String> {
+public class InlogVersturen extends AsyncTask<String, String, String> {
 
     String toastBericht;
     Context context;
@@ -17,13 +19,10 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
     private static final String USER = "ScrumApp";
     private static final String PASS = "database";
 
-    String email = RegistreerActivity.emailRegiVeld.getText().toString();
-    String wawo = RegistreerActivity.wawoRegiVeld.getText().toString();
-    String wawoHer = RegistreerActivity.wawoRegiVeld2.getText().toString();
-    String voornaam = RegistreerActivity.voornaamVeld.getText().toString();
-    String achternaam = RegistreerActivity.achternaamVeld.getText().toString();
+    String email = MainActivity.emailVeld.getText().toString();
+    String wawo = MainActivity.wawoVeld.getText().toString();
 
-    public RegistratieVersturen(Context context){
+    public InlogVersturen(Context context){
         this.context = context;
     }
 
@@ -35,13 +34,15 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
             if(con == null){
                 toastBericht = "Geen connectie met de database.";
             }else{
-                if(wawo.equals(wawoHer)) {
-                    Statement statement = con.createStatement();
-                    String query = "insert into scrumapp.gebruiker (email, wawo, vnaam, anaam) values ('" + email + "', '" + wawo + "', '" + voornaam + "', '" + achternaam + "')";
-                    statement.executeUpdate(query);
-                    toastBericht = "Nieuw account aangemaakt.";
+                Statement statement = con.createStatement();
+                String query = "select * from scrumapp.gebruiker where email = '" + email + "' and wawo = '" + wawo + "'";
+                ResultSet result = statement.executeQuery(query);
+                if(result.next()) {
+                    toastBericht = "Login succesvol.";
+                    Intent intent = new Intent(context, DashboardActivity.class);
+                    context.startActivity(intent);
                 }else{
-                    toastBericht = "Wachtwoord combinatie onjuist.";
+                    toastBericht = "E-mail of wachtwoord onjuist.";
                 }
             }
             con.close();
@@ -55,4 +56,5 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
     protected void onPostExecute(String s){
         Toast.makeText(context, toastBericht, Toast.LENGTH_LONG).show();
     }
+
 }
