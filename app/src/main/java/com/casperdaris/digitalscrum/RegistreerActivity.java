@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class RegistreerActivity extends AppCompatActivity {
 
@@ -33,5 +32,12 @@ public class RegistreerActivity extends AppCompatActivity {
             }
         });
 
+        registreerRegiKnop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RegistratieVersturen registratieVersturen = new RegistratieVersturen(v.getContext());
+                registratieVersturen.execute();
+            }
+        });
     }
 }

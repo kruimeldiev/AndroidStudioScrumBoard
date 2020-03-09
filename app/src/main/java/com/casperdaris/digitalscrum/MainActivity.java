@@ -27,13 +27,9 @@ public class MainActivity extends AppCompatActivity {
         registreerKnop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OpenRegistreerActivity();
+                Intent intent = new Intent(v.getContext(), RegistreerActivity.class);
+                startActivity(intent);
             }
         });
-    }
-
-    public void OpenRegistreerActivity(){
-        Intent intent = new Intent(this, RegistreerActivity.class);
-        startActivity(intent);
     }
 }
