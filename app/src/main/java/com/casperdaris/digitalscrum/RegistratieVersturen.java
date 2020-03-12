@@ -13,7 +13,7 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
     String toastBericht;
     Context context;
 
-    private static final String DB_URL = "jdbc:mysql://145.49.114.104:3306/scrumapp?useSSL=false";
+    private static final String DB_URL = "jdbc:mysql://10.0.2.2:3306/scrumapp?useSSL=false";
     private static final String USER = "ScrumApp";
     private static final String PASS = "database";
 
@@ -35,13 +35,15 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
             if(con == null){
                 toastBericht = "Geen connectie met de database.";
             }else{
-                if(wawo.equals(wawoHer)) {
+                if(!wawo.equals(wawoHer)) {
+                    toastBericht = "Wachtwoord combinatie onjuist.";
+                }else if (email.length()<4){
+                    toastBericht = "E-mail moet meer dan vier tekens hebben.";
+                }else {
                     Statement statement = con.createStatement();
                     String query = "insert into scrumapp.gebruiker (email, wawo, vnaam, anaam) values ('" + email + "', '" + wawo + "', '" + voornaam + "', '" + achternaam + "')";
                     statement.executeUpdate(query);
                     toastBericht = "Nieuw account aangemaakt.";
-                }else{
-                    toastBericht = "Wachtwoord combinatie onjuist.";
                 }
             }
             con.close();

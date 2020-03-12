@@ -15,7 +15,7 @@ public class InlogVersturen extends AsyncTask<String, String, String> {
     String toastBericht;
     Context context;
 
-    private static final String DB_URL = "jdbc:mysql://145.49.114.104:3306/scrumapp?useSSL=false";
+    private static final String DB_URL = "jdbc:mysql://10.0.2.2:3306/scrumapp?useSSL=false";
     private static final String USER = "ScrumApp";
     private static final String PASS = "database";
 
@@ -39,6 +39,11 @@ public class InlogVersturen extends AsyncTask<String, String, String> {
                 ResultSet result = statement.executeQuery(query);
                 if(result.next()) {
                     toastBericht = "Login succesvol.";
+                    MainActivity.huidigeGebruiker.setEmail(result.getString("email"));
+                    MainActivity.huidigeGebruiker.setVnaam(result.getString("vnaam"));
+                    MainActivity.huidigeGebruiker.setAnaam(result.getString("anaam"));
+                    MainActivity.huidigeGebruiker.setWawo(result.getString("wawo"));
+                    MainActivity.huidigeGebruiker.setPflink(result.getString("pfli"));
                     Intent intent = new Intent(context, DashboardActivity.class);
                     context.startActivity(intent);
                 }else{
