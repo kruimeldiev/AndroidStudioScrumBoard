@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 public class DashboardActivity extends AppCompatActivity {
 
+    public static ArrayList<Project> projectenLijst = new ArrayList<>();
+
     private RecyclerView projectRecyclerView;
     private RecyclerView.Adapter projectAdapter;
     private RecyclerView.LayoutManager projectLayoutManager;
@@ -32,28 +34,17 @@ public class DashboardActivity extends AppCompatActivity {
         naamVanGebruiker = findViewById(R.id.naamVanGebruiker);
         naamVanGebruiker.setText(MainActivity.huidigeGebruiker.getVnaam() + " " + MainActivity.huidigeGebruiker.getAnaam());
 
-        ArrayList<Project> projectenLijst = new ArrayList<>();
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-        projectenLijst.add(new Project(1,1,1,"Test Project", "Dit is een test om te kijken of mijn projectenlijst het doet.", "Naam van Projectowner", "Naam van Scrum master"));
-
-
         projectRecyclerView = findViewById(R.id.recycleViewProjecten);
         projectLayoutManager = new LinearLayoutManager(this);
         projectAdapter = new ProjectAdapter(projectenLijst);
 
         projectRecyclerView.setLayoutManager(projectLayoutManager);
         projectRecyclerView.setAdapter(projectAdapter);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        projectenLijst.clear();
     }
 }

@@ -60,6 +60,8 @@ public class InlogVersturen extends AsyncTask<String, String, String> {
 
     protected void onPostExecute(String s){
         Toast.makeText(context, toastBericht, Toast.LENGTH_LONG).show();
+        ProjectenOphalen projectenOphalen = new ProjectenOphalen(context);
+        projectenOphalen.execute();
     }
 
 }
