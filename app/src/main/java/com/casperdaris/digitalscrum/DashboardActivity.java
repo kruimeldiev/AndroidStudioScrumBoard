@@ -56,12 +56,15 @@ public class DashboardActivity extends AppCompatActivity {
         projectenRecyclerView.setLayoutManager(projectenLayoutManager);
         projectenRecyclerView.setAdapter(projectenAdapter);
 
-        //HIER NOG WAT EXTRA UITLEG GEVEN
         projectenAdapter.setOnProjectClickListener(new ProjectenAdapter.OnProjectClickListener() {
             @Override
             public void onProjectClick(int position) {
                 //Het project van de positie van de klik selecteren
                 huidigProject = projectenLijst.get(position);
+
+                //Alle backlog items ophalen voor het geselecteerde project en een nieuwe activity starten voor dit project
+                BacklogOphalen backlogOphalen = new BacklogOphalen(context);
+                backlogOphalen.execute();
 
                 Intent intent = new Intent(context, ProjectActivity.class);
                 startActivity(intent);
