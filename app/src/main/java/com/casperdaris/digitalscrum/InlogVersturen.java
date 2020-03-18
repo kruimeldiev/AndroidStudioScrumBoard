@@ -22,10 +22,12 @@ public class InlogVersturen extends AsyncTask<String, String, String> {
     String email = MainActivity.emailVeld.getText().toString();
     String wawo = MainActivity.wawoVeld.getText().toString();
 
+    //Context ophalen
     public InlogVersturen(Context context){
         this.context = context;
     }
 
+    //Gegevens naar de database sturen om proberen in te loggen
     @Override
     protected String doInBackground(String... strings){
         try{
@@ -44,6 +46,8 @@ public class InlogVersturen extends AsyncTask<String, String, String> {
                     MainActivity.huidigeGebruiker.setAnaam(result.getString("anaam"));
                     MainActivity.huidigeGebruiker.setWawo(result.getString("wawo"));
                     MainActivity.huidigeGebruiker.setPflink(result.getString("pfli"));
+
+                    //Nieuwe activiteit openen wanneer de gegeven inlogdata kloppen
                     Intent intent = new Intent(context, DashboardActivity.class);
                     context.startActivity(intent);
                 }else{
@@ -59,7 +63,11 @@ public class InlogVersturen extends AsyncTask<String, String, String> {
     }
 
     protected void onPostExecute(String s){
+        //Toastbericht maken
         Toast.makeText(context, toastBericht, Toast.LENGTH_LONG).show();
+
+        //De juiste projecten uit de database ophalen voor de gebruiker die in probeert te loggen
+        //Deze projecten worden vervolgens in de ArrayList(projectenLijst) van DashboardActivity geplaatst
         ProjectenOphalen projectenOphalen = new ProjectenOphalen(context);
         projectenOphalen.execute();
     }

@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         loginKnop = findViewById(R.id.loginKnop);
         registreerKnop = findViewById(R.id.registreerKnop);
 
+        //Nieuwe activiteit openen wanneer er op de knop wordt gedrukt
         registreerKnop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Proberen in te loggen met de gegevens
         loginKnop.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

@@ -25,6 +25,7 @@ public class RegistreerActivity extends AppCompatActivity {
         registreerRegiKnop = findViewById(R.id.registreerRegiKnop);
         annuleerRegiKnop = findViewById(R.id.annuleerRegiKnop);
 
+        //Activiteit sluiten en terug naar het login scherm
         annuleerRegiKnop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +33,7 @@ public class RegistreerActivity extends AppCompatActivity {
             }
         });
 
+        //Registratie versturen naar de MySQL database
         registreerRegiKnop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

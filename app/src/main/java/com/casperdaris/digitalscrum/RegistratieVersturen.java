@@ -23,10 +23,12 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
     String voornaam = RegistreerActivity.voornaamVeld.getText().toString();
     String achternaam = RegistreerActivity.achternaamVeld.getText().toString();
 
+    //Context ophalen
     public RegistratieVersturen(Context context){
         this.context = context;
     }
 
+    //Data versturen naar de database
     @Override
     protected String doInBackground(String... strings){
         try{
@@ -54,6 +56,7 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
         return toastBericht;
     }
 
+    //Toast maken voor user feedback
     protected void onPostExecute(String s){
         Toast.makeText(context, toastBericht, Toast.LENGTH_LONG).show();
     }
