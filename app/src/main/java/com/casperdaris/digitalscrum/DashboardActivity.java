@@ -8,8 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.casperdaris.digitalscrum.Adapters.ProjectenAdapter;
 import com.casperdaris.digitalscrum.Objecten.Project;
 
 import java.util.ArrayList;

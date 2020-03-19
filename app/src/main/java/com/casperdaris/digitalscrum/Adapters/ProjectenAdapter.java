@@ -1,4 +1,4 @@
-package com.casperdaris.digitalscrum;
+package com.casperdaris.digitalscrum.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.casperdaris.digitalscrum.DashboardActivity;
 import com.casperdaris.digitalscrum.Objecten.Project;
+import com.casperdaris.digitalscrum.R;
 
 import java.util.ArrayList;
 

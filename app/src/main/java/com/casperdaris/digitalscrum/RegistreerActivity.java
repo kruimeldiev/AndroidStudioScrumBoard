@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.casperdaris.digitalscrum.R;
+import com.casperdaris.digitalscrum.RegistratieVersturen;
+
 public class RegistreerActivity extends AppCompatActivity {
 
     static EditText emailRegiVeld, wawoRegiVeld, wawoRegiVeld2, voornaamVeld, achternaamVeld;
