@@ -33,8 +33,14 @@ public class BacklogOphalen extends AsyncTask<String, String, String> {
 
             String backlogQuery = "select * from ScrumApp.backlogitem where prid = '" + DashboardActivity.huidigProject.getPrid() + "'";
             ResultSet backlogResult = statement.executeQuery(backlogQuery);
-            while(backlogResult.next()){
-                ProjectActivity.backlogItems.add(new BacklogItem(backlogResult.getInt("prid"), backlogResult.getInt("prio"), backlogResult.getString("itnm"), backlogResult.getString("itbes"), backlogResult.getString("stat"), backlogResult.getString("dev")));
+            while(backlogResult.next()) {
+                if(backlogResult.getString("stat").equals("TO DO")) {
+                    ProjectActivity.todoItemLijst.add(new BacklogItem(backlogResult.getInt("prid"), backlogResult.getInt("prio"), backlogResult.getString("itnm"), backlogResult.getString("itbes"), backlogResult.getString("stat"), backlogResult.getString("dev")));
+                }else if(backlogResult.getString("stat").equals("DOING")){
+                    ProjectActivity.doingItemLijst.add(new BacklogItem(backlogResult.getInt("prid"), backlogResult.getInt("prio"), backlogResult.getString("itnm"), backlogResult.getString("itbes"), backlogResult.getString("stat"), backlogResult.getString("dev")));
+                }else if(backlogResult.getString("stat").equals("DONE")){
+                    ProjectActivity.doneItemLijst.add(new BacklogItem(backlogResult.getInt("prid"), backlogResult.getInt("prio"), backlogResult.getString("itnm"), backlogResult.getString("itbes"), backlogResult.getString("stat"), backlogResult.getString("dev")));
+                }
             }
             con.close();
         }catch (Exception e){

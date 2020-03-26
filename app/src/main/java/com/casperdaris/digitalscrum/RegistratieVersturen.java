@@ -23,7 +23,7 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
     String voornaam = RegistreerActivity.voornaamVeld.getText().toString();
     String achternaam = RegistreerActivity.achternaamVeld.getText().toString();
 
-    //Context ophalen
+    //Context bepalen via constructor
     public RegistratieVersturen(Context context){
         this.context = context;
     }
@@ -59,5 +59,13 @@ public class RegistratieVersturen extends AsyncTask <String, String, String> {
     //Toast maken voor user feedback
     protected void onPostExecute(String s){
         Toast.makeText(context, toastBericht, Toast.LENGTH_LONG).show();
+        if(toastBericht.equals("Nieuw account aangemaakt.")){
+            RegistreerActivity.emailRegiVeld.getText().clear();
+            RegistreerActivity.voornaamVeld.getText().clear();
+            RegistreerActivity.achternaamVeld.getText().clear();
+            RegistreerActivity.wawoRegiVeld.getText().clear();
+            RegistreerActivity.wawoRegiVeld2.getText().clear();
+        }
+        toastBericht = "";
     }
 }

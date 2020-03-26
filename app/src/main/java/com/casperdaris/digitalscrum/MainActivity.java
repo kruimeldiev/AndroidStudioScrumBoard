@@ -9,13 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.casperdaris.digitalscrum.Objecten.Gebruiker;
+import com.casperdaris.digitalscrum.Objecten.Project;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     public static EditText emailVeld, wawoVeld;
     public static Button loginKnop, registreerKnop;
 
-    public static Gebruiker huidigeGebruiker = new Gebruiker("", "", "", "", "");
+    public static Gebruiker huidigeGebruiker = new Gebruiker("", "", "", "");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -10,15 +10,70 @@
     android:orientation="vertical"
     tools:context=".ProjectActivity">
 
-    <TextView
-        android:id="@+id/naamVanProject"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="NAAM VAN PROJECT"
-        android:textSize="32sp"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:paddingVertical="50dp"/>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/naamVanProject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NAAM VAN PROJECT"
+            android:textSize="32sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:paddingVertical="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/beschrijvingVanProject"
+            android:text="Hier staat een hele hoop dummy tekst. Dit is een voorbeeld voor de beschrijvingtekst."
+            android:paddingHorizontal="50dp"
+            android:paddingBottom="20dp"
+            android:textAlignment="center"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:id="@+id/backlogToevoegenKnop"
+                android:drawableStart="@drawable/ic_add"
+                android:paddingStart="12dp"
+                android:background="@drawable/knop"
+                android:layout_margin="10dp"/>
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:id="@+id/backlogVerwijderenKnop"
+                android:background="@drawable/knop"
+                android:layout_margin="10dp"
+                android:drawableStart="@drawable/ic_delete"
+                android:paddingStart="13dp"/>
+
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:id="@+id/teamWeergevenKnop"
+                android:background="@drawable/knop"
+                android:layout_margin="10dp"
+                android:drawableStart="@drawable/ic_team"
+                android:paddingStart="13dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/projectTabLayout"

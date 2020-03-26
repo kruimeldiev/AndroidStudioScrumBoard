@@ -9,12 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.casperdaris.digitalscrum.DashboardActivity;
+import com.casperdaris.digitalscrum.MainActivity;
 import com.casperdaris.digitalscrum.Objecten.Project;
 import com.casperdaris.digitalscrum.R;
 
 import java.util.ArrayList;
 
 public class ProjectenAdapter extends RecyclerView.Adapter<ProjectenAdapter.ProjectenViewHolder> {
+
+    private ArrayList<Project> mProjectenLijst;
 
     private OnProjectClickListener projectListener;
 
@@ -57,10 +60,8 @@ public class ProjectenAdapter extends RecyclerView.Adapter<ProjectenAdapter.Proj
         }
     }
 
-    public ProjectenAdapter(ArrayList<Project> projectenVoorWeergave){
-
-        //De ArrayList (projectenLijst) met alle opgehaalde projecten uit de database worden nu in een andere lijst (projectenVoorWeergave) geplaatst
-        DashboardActivity.projectenLijst = projectenVoorWeergave;
+    public ProjectenAdapter(ArrayList<Project> projectenLijst) {
+        mProjectenLijst = projectenLijst;
     }
 
     @NonNull
@@ -73,9 +74,10 @@ public class ProjectenAdapter extends RecyclerView.Adapter<ProjectenAdapter.Proj
         return pvh;
     }
 
+    //De methode hieronder zorgt ervoor dat de Projecten in de DashboardActivity.projectenLijst worden overgezet naar Cards voor de Cardview
     @Override
     public void onBindViewHolder(@NonNull ProjectenViewHolder holder, int position) {
-        Project projectWeergeven = DashboardActivity.projectenLijst.get(position);
+        Project projectWeergeven = mProjectenLijst.get(position);
 
         holder.projectNaam.setText(projectWeergeven.getPrnaam());
         holder.projectBeschrijving.setText(projectWeergeven.getPrbes());
@@ -86,7 +88,7 @@ public class ProjectenAdapter extends RecyclerView.Adapter<ProjectenAdapter.Proj
     @Override
     public int getItemCount() {
 
-        //de hoeveelheid van de projecten bepalen
-        return DashboardActivity.projectenLijst.size();
+        //de hoeveelheid van de cardviews bepalen
+        return mProjectenLijst.size();
     }
 }

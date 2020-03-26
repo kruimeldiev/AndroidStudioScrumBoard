@@ -2,14 +2,13 @@ package com.casperdaris.digitalscrum.Objecten;
 
 public class Gebruiker {
 
-    private String email, vnaam, anaam, wawo, pflink;
+    private String email, vnaam, anaam, wawo;
 
-    public Gebruiker(String email, String vnaam, String anaam, String wawo, String pflink){
+    public Gebruiker(String email, String vnaam, String anaam, String wawo){
         this.email = email;
         this.vnaam = vnaam;
         this.anaam = anaam;
         this.wawo = wawo;
-        this.pflink = pflink;
     }
 
     public String getEmail() {
@@ -44,11 +43,4 @@ public class Gebruiker {
         this.wawo = wawo;
     }
 
-    public String getPflink() {
-        return pflink;
-    }
-
-    public void setPflink(String pflink) {
-        this.pflink = pflink;
-    }
 }

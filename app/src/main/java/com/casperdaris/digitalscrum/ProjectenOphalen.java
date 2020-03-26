@@ -2,6 +2,7 @@ package com.casperdaris.digitalscrum;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.casperdaris.digitalscrum.Objecten.Project;
 
@@ -9,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class ProjectenOphalen extends AsyncTask<String, String, String> {
 
@@ -39,21 +41,21 @@ public class ProjectenOphalen extends AsyncTask<String, String, String> {
             String prownQuery = "select * from ScrumApp.project where prown = '" + email + "'";
             ResultSet prownResult = statement.executeQuery(prownQuery);
             while(prownResult.next()){
-                DashboardActivity.projectenLijst.add(new Project(prownResult.getInt("prid"), prownResult.getInt("sprnr"), prownResult.getInt("sprlt"), prownResult.getString("prnaam"), prownResult.getString("besch"), prownResult.getString("prown"), prownResult.getString("scrma")));
+                DashboardActivity.projectenLijst.add(new Project(prownResult.getInt("prid"), prownResult.getString("prnaam"), prownResult.getString("besch"), prownResult.getString("prown"), prownResult.getString("scrma")));
             }
 
             //Projecten ophalen uit de database waar de gebruiker Scrum Master is
             String scrmaQuery = "select * from ScrumApp.project where scrma = '" + email + "'";
             ResultSet scrmaResult = statement.executeQuery(scrmaQuery);
             while(scrmaResult.next()){
-                DashboardActivity.projectenLijst.add(new Project(scrmaResult.getInt("prid"), scrmaResult.getInt("sprnr"), scrmaResult.getInt("sprlt"), scrmaResult.getString("prnaam"), scrmaResult.getString("besch"), scrmaResult.getString("prown"), scrmaResult.getString("scrma")));
+                DashboardActivity.projectenLijst.add(new Project(scrmaResult.getInt("prid"), scrmaResult.getString("prnaam"), scrmaResult.getString("besch"), scrmaResult.getString("prown"), scrmaResult.getString("scrma")));
             }
 
-            //Projecten ophalen uit de database waar de gebruiker developer is
+            //Projecten ophalen uit de database waar de gebruiker een Developer is
             String devQuery = "select * from ScrumApp.project where prid in (select prid from ScrumApp.gebruiker_is_developer where email = '" + email + "')";
             ResultSet devResult = statement.executeQuery(devQuery);
             while(devResult.next()){
-                DashboardActivity.projectenLijst.add(new Project(devResult.getInt("prid"), devResult.getInt("sprnr"), devResult.getInt("sprlt"), devResult.getString("prnaam"), devResult.getString("besch"), devResult.getString("prown"), devResult.getString("scrma")));
+                DashboardActivity.projectenLijst.add(new Project(devResult.getInt("prid"), devResult.getString("prnaam"), devResult.getString("besch"), devResult.getString("prown"), devResult.getString("scrma")));
             }
             con.close();
         }catch (Exception e){

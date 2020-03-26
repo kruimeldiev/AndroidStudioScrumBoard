@@ -25,6 +25,42 @@
         android:layout_marginBottom="15dp"
         android:textSize="24sp" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="5dp">
+
+        <Button
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:id="@+id/projectToevoegenKnop"
+            android:drawableStart="@drawable/ic_add"
+            android:paddingStart="12dp"
+            android:background="@drawable/knop"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:id="@+id/projectenRefresh"
+            android:drawableStart="@drawable/ic_refresh"
+            android:background="@drawable/knop"
+            android:paddingStart="12dp"
+            android:layout_margin="10dp"/>
+
+        <Button
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:id="@+id/projectVerwijderenKnop"
+            android:background="@drawable/knop"
+            android:layout_margin="10dp"
+            android:drawableStart="@drawable/ic_delete"
+            android:paddingStart="13dp"/>
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewProjecten"
         class="androidx.appcompat.app.AlertController$RecycleListView"
@@ -32,8 +68,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:padding="4dp"
-        android:scrollbars="vertical">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:scrollbars="vertical"/>
 
 </LinearLayout>

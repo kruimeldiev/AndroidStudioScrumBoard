@@ -16,13 +16,15 @@
         android:layout_height="wrap_content"
         android:text="Registreren"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
@@ -39,11 +41,14 @@
             android:id="@+id/emailRegiVeld"
             android:hint="E-mailadres"
             android:background="@drawable/edittextveld"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
@@ -60,11 +65,14 @@
             android:id="@+id/wawoRegiVeld"
             android:hint="Wachtwoord"
             android:background="@drawable/edittextveld"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
@@ -81,11 +89,14 @@
             android:id="@+id/wawoRegiVeld2"
             android:hint="Herhaling"
             android:background="@drawable/edittextveld"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
@@ -102,11 +113,14 @@
             android:id="@+id/voornaamVeld"
             android:hint="Voornaam"
             android:background="@drawable/edittextveld"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"/>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="40dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="5dp"
@@ -123,7 +137,9 @@
             android:id="@+id/achternaamVeld"
             android:hint="Achternaam"
             android:background="@drawable/edittextveld"
-            android:inputType="textPersonName"/>
+            android:inputType="textPersonName"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -141,7 +157,7 @@
             android:text="Registreer"
             android:textAllCaps="false"
             android:background="@drawable/knop"
-            android:layout_margin="20dp"/>
+            android:layout_margin="10dp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -151,7 +167,7 @@
             android:text="Annuleer"
             android:textAllCaps="false"
             android:background="@drawable/knop"
-            android:layout_margin="20dp"/>
+            android:layout_margin="10dp"/>
     </LinearLayout>
 
 </LinearLayout>

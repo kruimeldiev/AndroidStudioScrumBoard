@@ -2,13 +2,11 @@ package com.casperdaris.digitalscrum.Objecten;
 
 public class Project {
 
-    private int prid, sprntnr, sprntlt;
+    private int prid;
     private String prnaam, prbes, prown, scrma;
 
-    public Project(int prid, int sprntnr, int sprntlt, String prnaam, String prbes, String prown, String scrma){
+    public Project(int prid, String prnaam, String prbes, String prown, String scrma){
         this.prid = prid;
-        this.sprntnr = sprntnr;
-        this.sprntlt = sprntlt;
         this.prnaam = prnaam;
         this.prbes = prbes;
         this.prown = prown;
@@ -21,22 +19,6 @@ public class Project {
 
     public void setPrid(int prid) {
         this.prid = prid;
-    }
-
-    public int getSprntnr() {
-        return sprntnr;
-    }
-
-    public void setSprntnr(int sprntnr) {
-        this.sprntnr = sprntnr;
-    }
-
-    public int getSprntlt() {
-        return sprntlt;
-    }
-
-    public void setSprntlt(int sprntlt) {
-        this.sprntlt = sprntlt;
     }
 
     public String getPrnaam() {
