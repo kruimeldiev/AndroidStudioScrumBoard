@@ -65,7 +65,6 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProjectAanmaken.class);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -75,12 +74,8 @@ public class DashboardActivity extends AppCompatActivity {
             public void onClick(View v) {
                 projectenLijst.clear();
 
-                projectenRecyclerView.getRecycledViewPool().clear();
-
                 ProjectenOphalen projectenOphalen = new ProjectenOphalen(context);
                 projectenOphalen.execute();
-
-                maakProjectenRecyclerView();
 
                 projectenAdapter.notifyDataSetChanged();
             }
@@ -126,7 +121,7 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        //Projecten Arraylist leeghalen bij uitloggen
+        //Als ik de projecten lijst leeg wil maken bij het uitloggen in de app. Dan wordt de data niet opnieuw galaden wanneer er weer ingelogd word. Ik heb geen idee waaorm.
         projectenLijst.clear();
     }
 }

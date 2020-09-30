@@ -8,8 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.casperdaris.digitalscrum.DashboardActivity;
-import com.casperdaris.digitalscrum.MainActivity;
 import com.casperdaris.digitalscrum.Objecten.Project;
 import com.casperdaris.digitalscrum.R;
 
@@ -74,7 +72,7 @@ public class ProjectenAdapter extends RecyclerView.Adapter<ProjectenAdapter.Proj
         return pvh;
     }
 
-    //De methode hieronder zorgt ervoor dat de Projecten in de DashboardActivity.projectenLijst worden overgezet naar Cards voor de Cardview
+    //De methode hieronder zorgt ervoor dat de Projecten in de DashboardActivity.projectenLijst worden omgezet naar Cards voor de Cardview
     @Override
     public void onBindViewHolder(@NonNull ProjectenViewHolder holder, int position) {
         Project projectWeergeven = mProjectenLijst.get(position);
